@@ -14,7 +14,7 @@ const Highlights = ({ icon }) => {
                         <Highlight
                          icon={<FontAwesomeIcon icon='bolt' />}
                          title='Quick and Easy'
-                         para='Get Access to the book you purchased online instantly!' 
+                         para='Get Access to the book you purchased online instantly!f' 
                         />
                         <Highlight
                          icon={<FontAwesomeIcon icon='book-open' />}
