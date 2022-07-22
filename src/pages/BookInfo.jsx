@@ -1,15 +1,22 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
 import { useParams } from "react-router-dom";
 import Price from "../components/ui/Price";
 import Rating from "../components/ui/Rating";
 import Book from "../components/ui/Book";
 
-const BookInfo = ({ books, addToCart }) => {
+const BookInfo = ({ books, addToCart, cart }) => {
   const { id } = useParams();
   // Adding + to both sides converts it to a number ...
   const book = books.find((book) => +book.id === +id);
-//   console.log(book);
+
+  function addBookToCart(book) {
+    addToCart(book);
+  }
+
+ function bookExistsOnCart() { // Function not working
+    return cart?.find(book => book.id === +id);
+ }
+
   return (
     <div id="books_body">
       <main id="books_main">
@@ -53,7 +60,15 @@ const BookInfo = ({ books, addToCart }) => {
                     omnis! Aperiam amet cupiditate rerum saepe quas!
                   </p>
                 </div>
-                <button className="btn" onClick={() => addToCart(book)}>Add to Cart</button>
+                {bookExistsOnCart() ? ( //Function needs review
+                    <a href="/cart" className="book__link" >
+                  <button className="btn">Checkout</button>
+                  </a>
+                ) : (
+                  <button className="btn" onClick={() => addBookToCart(book)}>
+                    Add to Cart
+                  </button>
+                )}
               </div>
             </div>
           </div>
@@ -65,11 +80,12 @@ const BookInfo = ({ books, addToCart }) => {
               <h2 className="book__selected--title--top">Reccomended Books</h2>
             </div>
             <div className="books">
-            {books
-            .filter((book) => book.rating === 5 && +book.id !== +id)
-            .slice(0, 4)
-            .map(book => <Book book={book} key={book.id} />)
-            }
+              {books
+                .filter((book) => book.rating === 5 && +book.id !== +id)
+                .slice(0, 4)
+                .map((book) => (
+                  <Book book={book} key={book.id} />
+                ))}
             </div>
           </div>
         </div>
