@@ -9,7 +9,7 @@ const BookInfo = ({ books, addToCart }) => {
   const { id } = useParams();
   // Adding + to both sides converts it to a number ...
   const book = books.find((book) => +book.id === +id);
-  console.log(book);
+//   console.log(book);
   return (
     <div id="books_body">
       <main id="books_main">
