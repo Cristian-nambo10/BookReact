@@ -6,14 +6,15 @@ import Rating from "../components/ui/Rating";
 
 const BookInfo = ({ books }) => {
     const {id} = useParams();
-    const book = books.find(book => book.id == id);
+    // Adding + to both sides converts it to a number ...
+    const book = books.find(book => +book.id === +id);
     console.log(book)
   return (
     <div id="books_body">
       <main id="books_main">
         <div className="books_container">
           <div className="row">
-            <div className="book_selected--top">
+            <div className="book__selected--top">
               <a href="/books" className="book__link">
                 <FontAwesomeIcon icon="arrow-left" />
               </a>
@@ -22,7 +23,7 @@ const BookInfo = ({ books }) => {
               </a>
             </div>
             <div className="book__selected">
-              <figure className="book_selected--figure">
+              <figure className="book__selected--figure">
                 <img
                   src={book.url}
                   alt=""
@@ -36,11 +37,11 @@ const BookInfo = ({ books }) => {
                 </div>
                 <div className="book__summary"> 
                   <div className="book__summary--title">Summary</div>
-                   <p className="book__summary__para"> Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                   <p className="book__summary--para"> Lorem ipsum, dolor sit amet consectetur adipisicing elit.
                     Debitis adipisci facilis distinctio aperiam minus porro enim
                     fugit alias, dolore voluptas, perferendis consectetur autem
                     omnis! Aperiam amet cupiditate rerum saepe quas!</p>
-                   <p className="book__summary__para"> Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                   <p className="book__summary--para"> Lorem ipsum, dolor sit amet consectetur adipisicing elit.
                     Debitis adipisci facilis distinctio aperiam minus porro enim
                     fugit alias, dolore voluptas, perferendis consectetur autem
                     omnis! Aperiam amet cupiditate rerum saepe quas!</p>
@@ -55,7 +56,7 @@ const BookInfo = ({ books }) => {
 
         <div className="books__container">
             <div className="row">
-                <div className="books__selected--top">
+                <div className="book__selected--top">
                     <h2 className="book__selected--title--top">
                         Reccomended Books
                     </h2>
