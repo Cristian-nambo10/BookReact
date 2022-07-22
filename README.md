@@ -20,5 +20,5 @@
 - Add a show page for each book ✅
 - Update cart item numbers per user
 - Update price by adding books
-- Create cart show page
+- Create cart show page ✅
 - Connect ruby on rails backend
