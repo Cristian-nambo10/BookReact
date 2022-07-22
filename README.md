@@ -13,7 +13,7 @@
 [![Screen-Shot-2022-07-20-at-10-44-46-AM.png](https://i.postimg.cc/MHqCfzQd/Screen-Shot-2022-07-20-at-10-44-46-AM.png)](https://postimg.cc/vg2qpFXV)
 
 # Connect to Application
-[Click Me](https://morebooks-react.netlify.app/) to get Started!
+[Click Me](https://texas-books.netlify.app) to get Started!
 
 # Near Future Updates
 - Add my add to cart functionality
