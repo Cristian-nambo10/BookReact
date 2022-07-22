@@ -6,11 +6,11 @@ import { books } from "./data";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import BookInfo from "./pages/BookInfo";
 import Cart from "./pages/Cart";
-import { useState } from "react";
+// import { useState } from "react";
 
 
 function App() {
-  const [cart, setCart] = useState([]);
+  // const [cart, setCart] = useState([]);
 
 function addToCart(book) {
 
