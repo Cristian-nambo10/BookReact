@@ -2,6 +2,7 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import LibraryLogo from '../assets/Library.svg'
 
+
 const Nav = () => {
     function openMenu() {
         document.body.classList += " menu--open";
@@ -17,13 +18,13 @@ const Nav = () => {
                     <img src={LibraryLogo} alt="" className="logo" />
                 </a>
                 <ul className="nav__links">
-                    <li>
+                    <li className="nav__list">
                         <a href="/" className="nav__link">
                             Home
                         </a>
                     </li>
-                    <li>
-                        <a href="/" className="nav__link">
+                    <li className="nav__list">
+                        <a href="/books" className="nav__link">
                             Books
                         </a>
                     </li>

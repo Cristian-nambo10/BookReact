@@ -5,13 +5,13 @@ const Book = ({ book }) => {
 
   return (
     <div className="book">
-      <a href="/">
+      <a href="/books/1">
         <figure className="book__img--wrapper">
           <img src={book.url} alt="no" className="book__img" />
         </figure>
       </a>
       <div className="book__title">
-        <a href="/" className="book__title--link">
+        <a href="/books/1" className="book__title--link">
           {book.title}
         </a>
       </div>
