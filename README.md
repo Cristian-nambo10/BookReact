@@ -17,7 +17,7 @@
 
 # Near Future Updates
 - Add my add to cart functionality
-- Add a show page for each book
+- Add a show page for each book ✅
 - Update cart item numbers per user
 - Update price by adding books
 - Create cart show page

@@ -5,7 +5,7 @@ import Price from "../components/ui/Price";
 import Rating from "../components/ui/Rating";
 import Book from "../components/ui/Book";
 
-const BookInfo = ({ books }) => {
+const BookInfo = ({ books, addToCart }) => {
   const { id } = useParams();
   // Adding + to both sides converts it to a number ...
   const book = books.find((book) => +book.id === +id);
@@ -25,7 +25,7 @@ const BookInfo = ({ books }) => {
             </div>
             <div className="book__selected">
               <figure className="book__selected--figure">
-                <img src={book.url} alt="" />
+                <img src={book.url} alt="" className="book__selected--img" />
               </figure>
               <div className="book__selected--description">
                 <h2 className="book__selected--title">{book.title}</h2>
@@ -53,7 +53,7 @@ const BookInfo = ({ books }) => {
                     omnis! Aperiam amet cupiditate rerum saepe quas!
                   </p>
                 </div>
-                <button className="btn">Add to Cart</button>
+                <button className="btn" onClick={() => addToCart(book)}>Add to Cart</button>
               </div>
             </div>
           </div>
