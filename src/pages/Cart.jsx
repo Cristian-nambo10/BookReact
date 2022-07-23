@@ -1,6 +1,7 @@
 import React from "react";
 
 const Cart = ({ cart }) => {
+
   return (
     <div id="books__body">
       <main id="books__main">
@@ -13,61 +14,62 @@ const Cart = ({ cart }) => {
               <div className="cart__header">
                 <span className="cart__book">Book</span>
                 <span className="cart__quantity">Quantity</span>
-                <span className="cart__total">Total</span>
+                <span className="cart__total">Price</span>
               </div>
               <div className="cart__body">
                 {
-                    cart.map(book => {
+                    cart.map((book) => {
                         return (
                             <div className="cart__item">
                             <div className="cart__book">
                               <img
-                                src={book.url}
+                                src="https://covers.openlibrary.org/b/id/10088428-L.jpg"
                                 alt=""
                                 className="cart__book--img"
                               />
                               <div className="cart__book--info">
-                                  <span className="cart__book--title">
-                                      {book.title}
-                                  </span>
-                                  <span className="cart__book--price">
-                                      {book.salePrice || book.originalPrice}
-                                  </span>
-                                  <button className="cart__book--remove">
-                                      Remove
-                                  </button>
+                                <span className="cart__book--title">{book.title}</span>
+                                <span className="cart__book--price">
+                                  50.00
+                                </span>
+                                <button className="cart__book--remove">Remove</button>
                               </div>
                             </div>
                             <div className="cart__quantity">
-                              <input type="number" min={0} max={99} className="cart__input" />
+                              <input
+                                type="number"
+                                min={0}
+                                max={99}
+                                className="cart__input"
+                              />
                             </div>
-                            <div className="cart__total">
-                              10.00
-                            </div>
+                            <div className="cart__total">10.00</div>
                           </div>
                         )
                     })
                 }
-               
+             
               </div>
             </div>
             <div className="total">
-                <div className="total__item total__sub-total">
-                    <span>Subtotal</span>
-                    <span>9.00</span>
-                </div>
-                <div className="total__item total__tax">
-                    <span>Tax</span>
-                    <span>1.00</span>
-                </div>
-                <div className="total__item total__price">
-                    <span>Total</span>
-                    <span>10.00</span>
-                </div>
-                <button className="btn btn__checkout no-cursor"
-                onClick={() => alert('Updates coming soon!')} >
-                    Proceed to checkout
-                </button>
+              <div className="total__item total__sub-total">
+                <span>Subtotal</span>
+                <span>9.00</span>
+              </div>
+              <div className="total__item total__tax">
+                <span>Tax</span>
+                <span>1.00</span>
+              </div>
+              <div className="total__item total__price">
+                <span>Total</span>
+                <span>10.00</span>
+              </div>
+              <button
+                className="btn btn__checkout no-cursor"
+                onClick={() => alert("Updates coming soon!")}
+              >
+                Proceed to checkout
+              </button>
             </div>
           </div>
         </div>
