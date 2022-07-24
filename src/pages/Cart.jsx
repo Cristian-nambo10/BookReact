@@ -1,6 +1,6 @@
 import React from "react";
 
-const Cart = ({ cart }) => {
+const Cart = ({ cart, changeQuantity }) => {
 
   return (
     <div id="books__body">
@@ -30,7 +30,8 @@ const Cart = ({ cart }) => {
                               <div className="cart__book--info">
                                 <span className="cart__book--title">{book.title}</span>
                                 <span className="cart__book--price">
-                                  {book.price}
+                                  {(book.salePrice || book.originalPrice).toFixed(2)}
+                                  {/* to fixed makes string into decimal integers */}
                                 </span>
                                 <button className="cart__book--remove">Remove</button>
                               </div>
@@ -41,9 +42,11 @@ const Cart = ({ cart }) => {
                                 min={0}
                                 max={99}
                                 className="cart__input"
+                                value={book.quantity}
+                                onChange={(e) => changeQuantity(book, e.target.value)}
                               />
                             </div>
-                            <div className="cart__total">10.00</div>
+                            <div className="cart__total">{(book.salePrice || book.originalPrice * book.quantity).toFixed(2)}</div>
                           </div>
                         )
                     })
