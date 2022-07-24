@@ -47,22 +47,22 @@ const BookInfo = ({ books, addToCart, cart }) => {
                 <div className="book__summary">
                   <div className="book__summary--title">Summary</div>
                   <p className="book__summary--para">
-                    {" "}
+                    {/* {" "} */}
                     Lorem ipsum, dolor sit amet consectetur adipisicing elit.
                     Debitis adipisci facilis distinctio aperiam minus porro enim
                     fugit alias, dolore voluptas, perferendis consectetur autem
                     omnis! Aperiam amet cupiditate rerum saepe quas!
                   </p>
                   <p className="book__summary--para">
-                    {" "}
+                    {/* {" "} */}
                     Lorem ipsum, dolor sit amet consectetur adipisicing elit.
                     Debitis adipisci facilis distinctio aperiam minus porro enim
                     fugit alias, dolore voluptas, perferendis consectetur autem
                     omnis! Aperiam amet cupiditate rerum saepe quas!
                   </p>
                 </div>
-                {bookExistsOnCart() ? ( //Function needs review
-                    <Link to="/cart" className="book__link" >
+                {bookExistsOnCart() ? ( 
+                    <Link className="book__link" to="/cart" >
                   <button className="btn">Checkout</button>
                   </Link>
                 ) : (
