@@ -3,12 +3,16 @@ import Nav from "./components/Nav";
 import Home from "./pages/Home";
 import Books from "./pages/Books";
 import { books } from "./data";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import BookInfo from "./pages/BookInfo";
 import Cart from "./pages/Cart";
-import { useEffect, useState } from "react";
+import { createContext, useEffect, useState } from "react";
+
+export const ThemeContext = createContext(null);
 
 function App() {
+  const [theme, setTheme] = useState('dark')
+
   const [cart, setCart] = useState([]);
 
   function addToCart(book) {
@@ -34,9 +38,13 @@ function App() {
     console.log(cart);
   }, [cart]);
 
+  const toggleTheme = () => {
+    setTheme((curr) => (curr === 'light' ? 'dark' : 'light'));
+  };
   return (
-    <Router>
-      <div className="App">
+    <Switch>
+      <ThemeContext.Provider value={{ theme, toggleTheme }}>
+      <div className="App" id={theme}>
         <Nav />
         <Route path="/" component={Home} exact />
         <Route path="/books" exact render={() => <Books books={books} />} />
@@ -54,7 +62,8 @@ function App() {
         />
         <Footer />
       </div>
-    </Router>
+      </ThemeContext.Provider>
+    </Switch>
   );
 }
 
