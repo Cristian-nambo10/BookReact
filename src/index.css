@@ -655,7 +655,7 @@ select {
 */
 
 .cart__header {
-  background-color: #7342d6;
+  background-color: #00BFA6;
   margin: 0 24px;
   padding: 8px 16px;
   color: white;
@@ -748,7 +748,7 @@ select {
 }
 
 .total__sub-total {
-  border-top: 2px solid #7342d6;
+  border-top: 2px solid #00BFA6;
   padding-top: 24px;
 }
 

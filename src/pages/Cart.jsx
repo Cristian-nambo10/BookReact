@@ -4,7 +4,7 @@ const Cart = ({ cart, changeQuantity }) => {
 
   const total = () => {
     let price = 0;
-    cart.forEach((item) => {
+    cart.forEach((item) => { // No need to map aka make new array.
       price += +((item.salePrice || item.originalPrice) * item.quantity).toFixed(2);
       // Needed to wrap in parentheses the sP and oP in order for multipy by quantity to work ...
     });
