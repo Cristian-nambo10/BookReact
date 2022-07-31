@@ -11,7 +11,6 @@ import { createContext, useEffect, useState } from "react";
 export const ThemeContext = createContext(null);
 
 function App() {
-  const [theme, setTheme] = useState('dark')
 
   const [cart, setCart] = useState([]);
 

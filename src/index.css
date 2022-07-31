@@ -93,6 +93,7 @@ button:active {
 
 .logo {
   width: 160px;
+  filter: saturate(0%) brightness(70%) contrast(100%);
 }
 
 .nav__container {
