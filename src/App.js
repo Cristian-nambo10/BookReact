@@ -33,17 +33,18 @@ function App() {
     );
   }
 
+  function removeItem(item) {
+    setCart(cart.filter(book => book.id !== item.id))
+  }
+
   useEffect(() => {
     console.log(cart);
   }, [cart]);
 
-  const toggleTheme = () => {
-    setTheme((curr) => (curr === 'light' ? 'dark' : 'light'));
-  };
+
   return (
     <Switch>
-      <ThemeContext.Provider value={{ theme, toggleTheme }}>
-      <div className="App" id={theme}>
+      <div className="App">
         <Nav />
         <Route path="/" component={Home} exact />
         <Route path="/books" exact render={() => <Books books={books} />} />
@@ -56,12 +57,11 @@ function App() {
         <Route
           path="/cart"
           render={() => (
-            <Cart books={books} cart={cart} changeQuantity={changeQuantity} />
+            <Cart books={books} cart={cart} changeQuantity={changeQuantity} removeItem={removeItem} />
           )}
         />
         <Footer />
       </div>
-      </ThemeContext.Provider>
     </Switch>
   );
 }

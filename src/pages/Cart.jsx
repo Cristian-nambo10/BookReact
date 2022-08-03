@@ -1,19 +1,17 @@
 import React from "react";
 
-const Cart = ({ cart, changeQuantity }) => {
+const Cart = ({ cart, changeQuantity, removeItem }) => {
 
   const total = () => {
     let price = 0;
     cart.forEach((item) => { // No need to map aka make new array.
-      price += +((item.salePrice || item.originalPrice) * item.quantity).toFixed(2);
+      price += +((item.salePrice || item.originalPrice) * item.quantity);
       // Needed to wrap in parentheses the sP and oP in order for multipy by quantity to work ...
     });
     return price;
   }
 
-  const subTotal = (book) => {
-    
-  }
+
   return (
     <div id="books__body">
       <main id="books__main">
@@ -45,7 +43,7 @@ const Cart = ({ cart, changeQuantity }) => {
                                   {(book.salePrice || book.originalPrice).toFixed(2)}
                                   {/* to fixed makes string into decimal integers */}
                                 </span>
-                                <button className="cart__book--remove">Remove</button>
+                                <button className="cart__book--remove" onClick={() => removeItem(book)}>Remove</button>
                               </div>
                             </div>
                             <div className="cart__quantity">
@@ -69,15 +67,15 @@ const Cart = ({ cart, changeQuantity }) => {
             <div className="total">
               <div className="total__item total__sub-total">
                 <span>Subtotal</span>
-                <span>{subTotal()}</span>
+                <span>${(total() * 0.9).toFixed(2)}</span>
               </div>
               <div className="total__item total__tax">
                 <span>Tax</span>
-                <span>1.00</span>
+                <span>${(total() * 0.1).toFixed(2)}</span>
               </div>
               <div className="total__item total__price">
                 <span>Total</span>
-                <span>${total()}</span>
+                <span>${total().toFixed(2)}</span>
               </div>
               <button
                 className="btn btn__checkout no-cursor"
