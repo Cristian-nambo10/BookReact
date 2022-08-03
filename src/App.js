@@ -6,7 +6,7 @@ import { books } from "./data";
 import { Route, Switch } from "react-router-dom";
 import BookInfo from "./pages/BookInfo";
 import Cart from "./pages/Cart";
-import { createContext, useEffect, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 
 export const ThemeContext = createContext(null);
 
@@ -52,6 +52,7 @@ function App() {
 
   return (
     <Switch>
+      <React.Fragment>
       <div className="App">
         <Nav numberOfItems={numberOfItems()} /> 
         {/* need the () to pass and perform the function / return statement */}
@@ -71,6 +72,7 @@ function App() {
         />
         <Footer />
       </div>
+      </React.Fragment>
     </Switch>
   );
 }

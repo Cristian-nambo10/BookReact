@@ -1,10 +1,27 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Rating from "./Rating";
 import Price from "./Price";
 import { Link } from "react-router-dom";
 
 const Book = ({ book }) => {
   const [img, setImg] = useState();
+
+  const mountedRef = useRef(true)
+
+  useEffect(() => {
+    const image = new Image();
+    image.src = book.url;
+    image.onload = () => {
+      setTimeout(() => {
+      setImg(image);
+      }, 300)
+    };
+    return () => {
+      // when component unmounts
+      // with useRef need to add .current always ...
+      mountedRef.current = false
+    }
+  })
  
   return (
     <div className="book">
@@ -13,7 +30,7 @@ const Book = ({ book }) => {
           <Link to={`/books/${book.id}`}>
             <figure className="book__img--wrapper">
               <img
-                src={book.url}
+                src={img.src}
                 alt="no"
                 className="book__img"
               />
